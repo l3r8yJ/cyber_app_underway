@@ -16,6 +16,6 @@ players_template = """
 
 connection = manager.create_connection('testing_db')
 query = parser_hltv.create_query_by_table(players_url, players_template)
-# manager.execute_query(connection, query)
+manager.execute_query(connection, query)
 print(query)
 
