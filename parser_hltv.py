@@ -4,7 +4,7 @@ import lxml
 import requests.api
 from bs4 import BeautifulSoup, element
 
-              
+
 def create_query_by_table(url, query_template):
 
     req = requests.get(url)
