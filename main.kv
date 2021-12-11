@@ -1,0 +1,99 @@
+WindowManager:
+
+    MainWindow:
+
+    InfoWindow:
+
+    NewsWindow:
+
+<InfoWindow>:
+    name: 'info_window'
+
+    BoxLayout:
+        orientation: 'vertical'
+        size: root.width, root.height
+
+        BoxLayout:
+            orientation: 'vertical'
+            padding: ("20dp", "20dp", "20dp", "20dp")
+            size_hint_y: .1
+
+
+            ScrollViewPlayers:
+                StackLayoutPlayers:
+
+                    name: "players"
+                    padding: "20dp", "20dp"
+                    size_hint: 1, None
+                    height: self.minimum_height
+                    spacing: "10dp"
+
+
+            Button:
+                text: "<"
+                font_size: 40
+                size_hint_y: 0.1
+
+                on_release:
+                    app.root.current = "main_window"
+                    root.manager.transition.direction = "right"
+
+            Label:
+                text: "infoWindow"
+                font_size: 30
+                size_hint_y: 0.1
+
+
+<ScrollViewPlayers@ScrollView>:
+
+
+<NewsWindow>:
+    name: 'news_window'
+
+    BoxLayout:
+        orientation: 'vertical'
+        size: root.width, root.height
+
+        Label:
+            text: "NewsWindow"
+            font_size: 32     
+        Button:
+            text: "Back"
+            font_size: 32
+            on_release: 
+                app.root.current = "main_window"
+                root.manager.transition.direction = "right"
+
+<MainWindow>:
+    name: 'main_window'
+
+    BoxLayout:
+        orientation: 'vertical'
+        size: root.width, root.height
+
+        Label:
+            text: "CyberPedia"
+            font_size: 32
+            size_hint_y: .2
+
+        BoxLayout:
+            padding: "20dp"
+
+            Button:
+                text: "Info"
+                font_size: 32
+                on_release:  
+                    app.root.current = "info_window"
+                    root.manager.transition.direction = "left"
+            Button:
+                text: "News"
+                font_size: 32
+                on_release: 
+                    app.root.current = "news_window"
+                    root.manager.transition.direction = "left"
+
+
+<PlayerWindow>:
+    name: "player_screen"
+    Button:
+        text: "player"
