@@ -23,7 +23,7 @@ class StackLayoutPlayers(StackLayout):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
-        players = dm.execute_read_query(connection, 'SELECT full_name FROM players')
+        players = dm.execute_read_query(connection, 'SELECT full_name FROM players WHERE id < 50')
 
         # Create buttons for each player
         for player in players:

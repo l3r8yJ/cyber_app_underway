@@ -56,11 +56,11 @@ WindowManager:
 
         Label:
             text: "NewsWindow"
-            font_size: 32     
+            font_size: 32
         Button:
             text: "Back"
             font_size: 32
-            on_release: 
+            on_release:
                 app.root.current = "main_window"
                 root.manager.transition.direction = "right"
 
@@ -82,13 +82,13 @@ WindowManager:
             Button:
                 text: "Info"
                 font_size: 32
-                on_release:  
+                on_release:
                     app.root.current = "info_window"
                     root.manager.transition.direction = "left"
             Button:
                 text: "News"
                 font_size: 32
-                on_release: 
+                on_release:
                     app.root.current = "news_window"
                     root.manager.transition.direction = "left"
 
