@@ -6,14 +6,18 @@ from bs4 import BeautifulSoup
 
 
 class ParserHLTV:
+    
     players_url = 'https://www.hltv.org/stats/players'
     players_req = requests.get(players_url)
     players_soup = BeautifulSoup(players_req.text, "lxml")
     
-    
     teams_url = 'https://www.hltv.org/stats/teams'
     teams_req = requests.get(teams_url)
     teams_soup = BeautifulSoup(teams_req.text, "lxml")
+    
+    ftu_url = 'https://www.hltv.org/stats/teams/ftu'
+    ftu_req = requests.get(ftu_url)
+    ftu_soup = BeautifulSoup(ftu_req.text, 'lxml')
     
 
     def get_players_query(self):
@@ -59,5 +63,15 @@ class ParserHLTV:
             single_team = single_team.split(',')
             single_team = list(filter(None, single_team))
             
-            print(single_team)      
+            print(single_team)     
+            
+    def get_ftu_query(self):
+        ftu_table = self.ftu_soup.find('tbody').find_all('tr')
         
+        for row in ftu_table:
+            single_ftu = ''
+            single_ftu += row.text.replace('\n', ',')
+            single_ftu = single_ftu.split(',')
+            single_ftu = list(filter(None, single_ftu))
+            print(single_ftu)
+         
