@@ -2,7 +2,7 @@ import requests
 import sqlite3
 import lxml
 import requests.api
-from bs4 import BeautifulSoup, element
+from bs4 import BeautifulSoup
 
 
 def create_query_by_table(url, query_template):

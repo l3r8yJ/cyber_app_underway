@@ -19,15 +19,19 @@ WindowManager:
             size_hint_y: .1
 
 
-            ScrollViewPlayers:
-                StackLayoutPlayers:
-
-                    name: "players"
-                    padding: "20dp", "20dp"
-                    size_hint: 1, None
-                    height: self.minimum_height
-                    spacing: "10dp"
-
+            InfoManger:
+                StackScreen:
+                    id: 'player_screen'
+                    Scroll:
+                        id: 'scroll_stack'
+                        StackLayoutPlayers:
+                            id: 'stack'
+                            padding: "20dp", "20dp"
+                            size_hint: 1, None
+                            height: self.minimum_height
+                            spacing: "10dp"
+                PlayerScreen:
+                    name: 'player_screen'
 
             Button:
                 text: "<"
@@ -42,9 +46,6 @@ WindowManager:
                 text: "infoWindow"
                 font_size: 30
                 size_hint_y: 0.1
-
-
-<ScrollViewPlayers@ScrollView>:
 
 
 <NewsWindow>:
@@ -92,8 +93,4 @@ WindowManager:
                     app.root.current = "news_window"
                     root.manager.transition.direction = "left"
 
-
-<PlayerWindow>:
-    name: "player_screen"
-    Button:
-        text: "player"
+<PlayerScreen>:

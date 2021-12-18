@@ -3,6 +3,7 @@ from kivy.lang import Builder
 from windows import InfoWindow, NewsWindow, MainWindow, WindowManager
 import StackLayoutPlayers
 
+
 load = Builder.load_file('main.kv')
 
 
